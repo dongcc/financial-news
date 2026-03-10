@@ -164,21 +164,23 @@
 
     <script>
         // Chart.js configuration
-        const sourceLabels = {{labels: ["CNBC", "Yahoo Finance"]},
-        datasets: [{
-            label: 'Articles',
-            data: [5, 5],
-            backgroundColor: [
-                '#00d4ff', '#ff6b6b', '#ffd93d', '#6bcf7f', '#ff8e53',
-                '#a0855b', '#4ecdc4', '#ff6b9d', '#c7ceea', '#b5e7a0'
-            ],
-            borderWidth: 1
-        }]};
+        const sourceData = {
+            labels: ["CNBC", "Yahoo Finance"],
+            datasets: [{
+                label: 'Articles',
+                data: [5, 5],
+                backgroundColor: [
+                    '#00d4ff', '#ff6b6b', '#ffd93d', '#6bcf7f', '#ff8e53',
+                    '#a0855b', '#4ecdc4', '#ff6b9d', '#c7ceea', '#b5e7a0'
+                ],
+                borderWidth: 1
+            }]
+        };
 
         // Bar chart
         new Chart(document.getElementById('sourceChart'), {
             type: 'bar',
-            data: sourceLabels,
+            data: sourceData,
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
@@ -193,7 +195,7 @@
         // Doughnut chart
         new Chart(document.getElementById('pieChart'), {
             type: 'doughnut',
-            data: sourceLabels,
+            data: sourceData,
             options: {
                 responsive: true,
                 maintainAspectRatio: false,

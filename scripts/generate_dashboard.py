@@ -136,31 +136,33 @@ def generate_html(data: dict, output_path: str):
 
     <script>
         // Chart.js configuration
-        const sourceLabels = {{labels: ['''
-        
+        const sourceData = {
+            labels: ['''
+    
     labels = list(source_counts.keys())
     counts = [source_counts[l] for l in labels]
     
     html += ', '.join(f'"{l}"' for l in labels)
     
-    html += ''']},
-        datasets: [{
-            label: 'Articles',
-            data: ['''
+    html += '''],
+            datasets: [{
+                label: 'Articles',
+                data: ['''
     html += ', '.join(str(c) for c in counts)
     
     html += '''],
-            backgroundColor: [
-                '#00d4ff', '#ff6b6b', '#ffd93d', '#6bcf7f', '#ff8e53',
-                '#a0855b', '#4ecdc4', '#ff6b9d', '#c7ceea', '#b5e7a0'
-            ],
-            borderWidth: 1
-        }]};
+                backgroundColor: [
+                    '#00d4ff', '#ff6b6b', '#ffd93d', '#6bcf7f', '#ff8e53',
+                    '#a0855b', '#4ecdc4', '#ff6b9d', '#c7ceea', '#b5e7a0'
+                ],
+                borderWidth: 1
+            }]
+        };
 
         // Bar chart
         new Chart(document.getElementById('sourceChart'), {
             type: 'bar',
-            data: sourceLabels,
+            data: sourceData,
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
@@ -175,7 +177,7 @@ def generate_html(data: dict, output_path: str):
         // Doughnut chart
         new Chart(document.getElementById('pieChart'), {
             type: 'doughnut',
-            data: sourceLabels,
+            data: sourceData,
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
