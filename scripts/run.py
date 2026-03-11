@@ -24,6 +24,14 @@ def main():
         print(f"Error fetching news: {result.stderr}")
         sys.exit(1)
     
+    # Save fetched JSON to file for the generator
+    try:
+        with open(json_file, 'w', encoding='utf-8') as f:
+            f.write(result.stdout)
+    except Exception as e:
+        print(f"Failed to write {json_file}: {e}")
+        sys.exit(1)
+    
     print("✅ News fetched successfully")
     print("📊 Generating dashboard...")
     gen_script = script_dir / 'generate_dashboard.py'

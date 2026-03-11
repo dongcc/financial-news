@@ -1,81 +1,46 @@
 {
   "articles": [
     {
-      "title": "Iran war could make affordability bigger issue in 2026 elections",
-      "link": "https://www.cnbc.com/2026/03/07/iran-war-affordability-midterm.html",
-      "published": "Sat, 07 Mar 2026 17:27:55 GMT",
-      "summary": "The 2026 midterm election will determine whether Democrats can win back majorities in both chambers of Congress, and check President Donald Trump's policies.",
+      "title": "AI chipmaker Cerebras namedropped by Oracle, alongside Nvidia and AMD",
+      "link": "https://www.cnbc.com/2026/03/10/ai-chipmaker-cerebras-namedropped-by-oracle-alongside-nvidia-and-amd-.html",
+      "published": "Wed, 11 Mar 2026 00:48:14 GMT",
+      "summary": "A Cerebras deal from one of the world's top cloud providers could be a big boon for a company that's trying to hit the public market.",
       "source_name": "CNBC"
     },
     {
-      "title": "Top Wall Street analysts are bullish on these 3 stocks despite ongoing volatility",
-      "link": "https://www.cnbc.com/2026/03/08/top-analysts-are-bullish-on-these-3-stocks-despite-ongoing-volatility.html",
-      "published": "Sun, 08 Mar 2026 12:56:07 GMT",
-      "summary": "TipRanks compiles some of the best stocks to own amid the current volatility, according to the Street's top analysts.",
+      "title": "Oracle stock jumps 9% on earnings beat and increased guidance as cloud revenue climbs 44%",
+      "link": "https://www.cnbc.com/2026/03/10/oracle-orcl-q3-earnings-report-2026.html",
+      "published": "Wed, 11 Mar 2026 00:44:03 GMT",
+      "summary": "Oracle boosted its revenue backlog total by $30 billion during the February quarter.",
       "source_name": "CNBC"
     },
     {
-      "title": "Global week ahead: Diplomacy in ruins as G7 meets on Iran",
-      "link": "https://www.cnbc.com/2026/03/08/global-week-ahead-diplomacy-in-ruins-as-g7-meets-on-iran.html",
-      "published": "Sun, 08 Mar 2026 11:12:45 GMT",
-      "summary": "G7 finance ministers and central bank governors are set to convene for a key meeting as diplomatic tensions escalate over the Iran conflict.",
+      "title": "Trump says U.S. will build first refinery in 50 years with investment from India's Reliance Industries",
+      "link": "https://www.cnbc.com/2026/03/11/trump-us-oil-refinery-reliance-ambani-texas-india-shale-wti.html",
+      "published": "Wed, 11 Mar 2026 03:08:40 GMT",
+      "summary": "U.S. President said India's largest private energy company Reliance Industries is investing in a $300-billion refinery project in Texas.",
       "source_name": "CNBC"
     },
     {
-      "title": "China says 'thorough preparations' needed as Trump-Xi meeting hangs in the balance amid Iran war",
-      "link": "https://www.cnbc.com/2026/03/08/china-says-thorough-preparations-needed-ahead-of-trump-xi-meeting.html",
-      "published": "Sun, 08 Mar 2026 07:17:53 GMT",
-      "summary": "China's top diplomat Wang Yi signaled preparations are underway for a planned meeting between the presidents of the U.S. and China.",
+      "title": "Tillis maintains blockade on Fed pick Kevin Warsh over Powell probe",
+      "link": "https://www.cnbc.com/2026/03/10/fed-kevin-warsh-thom-tillis-trump.html",
+      "published": "Tue, 10 Mar 2026 21:42:30 GMT",
+      "summary": "Sen. Thom Tillis met with Federal Reserve chairman nominee Kevin Warsh, who President Donald Trump wants to replace Chair Jerome Powell.",
       "source_name": "CNBC"
     },
     {
-      "title": "Iranian projectiles continue to strike Gulf countries; Tehran says new leader appointed",
-      "link": "https://www.cnbc.com/2026/03/08/iranian-projectiles-continue-to-strike-gulf-countries-infrastructure.html",
-      "published": "Sun, 08 Mar 2026 12:35:45 GMT",
-      "summary": "Bahrain and the United Arab Emirates report more strikes on civilian targets as U.S.-Israeli attacks on Iran continue.",
+      "title": "Oil retreats even after Energy Secretary wrongly claims Navy escorted tanker through Strait of Hormuz",
+      "link": "https://www.cnbc.com/2026/03/10/crude-oil-prices-today-iran-war.html",
+      "published": "Tue, 10 Mar 2026 20:55:44 GMT",
+      "summary": "The International Energy Agency will hold an extraordinary meeting on Tuesday to discuss a possible release of emergency stockpiles.",
       "source_name": "CNBC"
-    },
-    {
-      "title": "Shopify Inc. (SHOP) a Strong Buy, Per Wall Street",
-      "link": "https://finance.yahoo.com/news/shopify-inc-shop-strong-buy-120936735.html",
-      "published": "2026-03-07T12:09:36Z",
-      "summary": "",
-      "source_name": "Yahoo Finance"
-    },
-    {
-      "title": "Bank of America Resumes Coverage on Tesla, Inc. (TSLA), Upgrades to Buy",
-      "link": "https://finance.yahoo.com/news/bank-america-resumes-coverage-tesla-120907487.html",
-      "published": "2026-03-07T12:09:07Z",
-      "summary": "",
-      "source_name": "Yahoo Finance"
-    },
-    {
-      "title": "Ray Dalio says America is facing a \u2018debt death spiral\u2019 \u2014 but you can protect your portfolio with these 3 assets",
-      "link": "https://finance.yahoo.com/news/ray-dalio-says-america-facing-120500455.html",
-      "published": "2026-03-07T12:05:00Z",
-      "summary": "",
-      "source_name": "Yahoo Finance"
-    },
-    {
-      "title": "Premium credit cards can offer big-time benefits, but many of them go to waste. How to make the most of your perks",
-      "link": "https://finance.yahoo.com/news/premium-credit-cards-offer-big-111500513.html",
-      "published": "2026-03-07T11:15:00Z",
-      "summary": "",
-      "source_name": "Yahoo Finance"
-    },
-    {
-      "title": "Lockheed vs. Anduril: Who Will Build the Army's Next Great Command and Control System?",
-      "link": "https://finance.yahoo.com/news/lockheed-vs-anduril-build-armys-112600189.html",
-      "published": "2026-03-07T11:26:00Z",
-      "summary": "",
-      "source_name": "Yahoo Finance"
     }
   ],
   "sources": {
     "Reuters Markets": 0,
-    "Yahoo Finance": 5,
+    "Yahoo Finance": 0,
     "CNBC": 5
   },
-  "total": 10,
-  "generated_at": "2026-03-08 21:20:17"
+  "total": 5,
+  "generated_at": "2026-03-11 11:11:58"
 }
