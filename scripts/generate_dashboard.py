@@ -12,6 +12,116 @@ def load_news_data(json_path: str) -> dict:
     with open(json_path, 'r') as f:
         return json.load(f)
 
+def categorize_articles(articles: list) -> dict:
+    """Categorize articles into the four required categories."""
+    categories = {
+        "🌍 Geopolitical & Market Impact": [],
+        "📈 Stock Picks & Analyst Recommendations": [],
+        "💰 Wealth Management Insights": [],
+        "🏭 Defense & Tech": []
+    }
+    
+    # Keywords for categorization
+    geo_keywords = ['war', 'iran', 'trump', 'fed', 'central bank', 'g7', 'china', 'india', 'relince', 'admini', 'policy', 'tariff', 'trade', 'diplomacy', 'oil', 'energy', 'refiner', 'strait', 'hormuz', 'military', 'navy', 'minelayer', 'blockade', 'nomination', 'powell', 'warsh', 'tillis']
+    stock_keywords = ['stock', 'buy', 'sell', 'analyst', 'upgrade', 'downgrade', 'target', 'earnings', 'revenue', 'profit', 'dividend', 'portfolio', 'investment', 'bullish', 'bearish', 'rating', 'top picks', 'wall street']
+    wealth_keywords = ['wealth', 'retirement', 'saving', 'credit card', 'perks', 'benefits', 'personal finance', 'budget', 'tax', 'estate', 'insurance', 'inheritance', 'women', 'family', 'education', 'home', 'mortgage']
+    defense_tech_keywords = ['defense', 'military', 'weapon', 'drone', 'missile', 'lockheed', 'anduril', 'raytheon', 'boeing', 'defense tech', 'command and control', 'army', 'navy', 'air force', 'space', 'satellite', 'cyber', 'ai', 'artificial intelligence', 'nvidia', 'amd', 'chip', 'semiconductor', 'oracle', 'cloud', 'data center', 'layoffs']
+    
+    for article in articles:
+        title = article['title'].lower()
+        summary = article.get('summary', '').lower()
+        text = title + ' ' + summary
+        
+        # Check in priority order: Geo > Stock > Wealth > Defense
+        if any(kw in text for kw in geo_keywords):
+            categories["🌍 Geopolitical & Market Impact"].append(article)
+        elif any(kw in text for kw in stock_keywords):
+            categories["📈 Stock Picks & Analyst Recommendations"].append(article)
+        elif any(kw in text for kw in wealth_keywords):
+            categories["💰 Wealth Management Insights"].append(article)
+        elif any(kw in text for kw in defense_tech_keywords):
+            categories["🏭 Defense & Tech"].append(article)
+        else:
+            # Default to Geopolitical if no match
+            categories["🌍 Geopolitical & Market Impact"].append(article)
+    
+    return categories
+
+def generate_text_summary(data: dict, output_path: str):
+    """Generate formatted text summary."""
+    articles = data['articles']
+    total = data['total']
+    generated = data['generated_at']
+    
+    # Categorize
+    categories = categorize_articles(articles)
+    
+    # Source info with URLs
+    source_info = {
+        "CNBC": "https://www.cnbc.com",
+        "Yahoo Finance": "https://finance.yahoo.com",
+        "Reuters Markets": "https://www.reuters.com/markets",
+        "Reuters": "https://www.reuters.com",
+        "Bloomberg": "https://www.bloomberg.com",
+        "WSJ": "https://www.wsj.com",
+        "Financial Times": "https://www.ft.com"
+    }
+    
+    # Count sources
+    source_counts = {}
+    for article in articles:
+        src = article['source_name']
+        source_counts[src] = source_counts.get(src, 0) + 1
+    
+    # Build header
+    date_str = generated.split()[0] if ' ' in generated else generated
+    lines = [f"Top Financial News — {date_str}", "", "📰 Latest Headlines", ""]
+    
+    # Build categorized sections in required order
+    category_order = [
+        "🌍 Geopolitical & Market Impact",
+        "📈 Stock Picks & Analyst Recommendations",
+        "💰 Wealth Management Insights",
+        "🏭 Defense & Tech"
+    ]
+    for emoji_category in category_order:
+        cat_articles = categories.get(emoji_category, [])
+        if cat_articles:
+            lines.append(f"{emoji_category}")
+            lines.append("")
+            for article in cat_articles:
+                title = article['title']
+                link = article.get('link', '#')
+                source = article['source_name']
+                lines.append(f"• {title} — {link} ({source})")
+            lines.append("")
+    
+    # Build footer
+    lines.append("Sources: " + ", ".join([f"{src} ({source_info.get(src, 'https://example.com')}) ({count})" for src, count in sorted(source_counts.items())]))
+    lines.append(f"Total: {total}")
+    lines.append(f"Generated: {generated}")
+    
+    # Get HTML dashboard path
+    html_file = output_path.parent / 'dashboard.html'
+    workspace_root = Path('/home/dongcc/.openclaw/workspace')
+    try:
+        rel_path = html_file.relative_to(workspace_root)
+        http_url = f"http://192.168.3.78:8002/{rel_path}"
+        file_url = f"file://{html_file.resolve()}"
+    except:
+        http_url = "http://localhost:8002/skills/financial-news/scripts/output/dashboard.html"
+        file_url = f"file://{html_file}"
+    
+    lines.append(f"Dashboard (HTTP): {http_url}")
+    lines.append(f"Dashboard (file): {file_url}")
+    
+    # Write file
+    txt_file = output_path.parent / 'summary.txt'
+    with open(txt_file, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines))
+    
+    print(f"✅ Text summary generated: {txt_file}")
+
 def generate_html(data: dict, output_path: str):
     """Generate dashboard HTML with Chart.js and news cards."""
     
@@ -222,3 +332,4 @@ if __name__ == "__main__":
     
     data = load_news_data(str(json_file))
     generate_html(data, str(html_file))
+    generate_text_summary(data, html_file)
